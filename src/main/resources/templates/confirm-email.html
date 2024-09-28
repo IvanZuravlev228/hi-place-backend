@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Confirm your email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        a {
+            background-color: #40e566;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 40px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #2cbf50;
+        }
+    </style>
+</head>
+<body>
+<h1>Confirm Your Email</h1>
+<p>Thank you for registering with us! Please click the button below to confirm your email address and complete your registration</p>
+<a th:href="@{${confirmationUrl}}">Confirm Email</a>
+</body>
+</html>
