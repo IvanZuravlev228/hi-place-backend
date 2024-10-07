@@ -1,8 +1,8 @@
 package hi.place.service.mapper;
 
-import hi.place.dto.rating.RatingRequestDto;
-import hi.place.dto.rating.RatingResponseDto;
-import hi.place.model.user.Rating;
+import hi.place.dto.rating.ReviewRequestDto;
+import hi.place.dto.rating.ReviewResponseDto;
+import hi.place.model.user.Review;
 import hi.place.service.ClientService;
 import hi.place.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class RatingMapper implements RequestResponseMapper<RatingRequestDto, RatingResponseDto, Rating> {
+public class ReviewMapper implements RequestResponseMapper<ReviewRequestDto, ReviewResponseDto, Review> {
     private final UserService userService;
     private final ClientService clientService;
 
     @Override
-    public Rating toModel(RatingRequestDto dto) {
-        Rating model = new Rating();
+    public Review toModel(ReviewRequestDto dto) {
+        Review model = new Review();
         model.setFeedback(dto.getFeedback());
         model.setPoint(dto.getPoint());
         model.setUser(userService.getById(dto.getUserId()));
@@ -25,10 +25,11 @@ public class RatingMapper implements RequestResponseMapper<RatingRequestDto, Rat
     }
 
     @Override
-    public RatingResponseDto toDto(Rating model) {
-        RatingResponseDto dto = new RatingResponseDto();
+    public ReviewResponseDto toDto(Review model) {
+        ReviewResponseDto dto = new ReviewResponseDto();
         dto.setId(model.getId());
         dto.setFeedback(model.getFeedback());
+        dto.setAddedDate(model.getAddedDate());
         dto.setPoint(model.getPoint());
         dto.setUserId(model.getUser().getId());
         dto.setClientId(model.getClient().getId());

@@ -74,9 +74,9 @@ public class SecurityConfig {
                     auth.requestMatchers(HttpMethod.DELETE, "/price/{id}")
                             .hasAnyRole(User.UserType.MASTER.name(), User.UserType.SALON.name());
 
-                    auth.requestMatchers(HttpMethod.GET, "/rating/{userId}")
+                    auth.requestMatchers(HttpMethod.GET, "/reviews/{userId}")
                             .permitAll();
-                    auth.requestMatchers(HttpMethod.POST, "/rating")
+                    auth.requestMatchers(HttpMethod.POST, "/reviews")
                             .permitAll();
 
                     auth.requestMatchers(HttpMethod.GET, "/service/{typeServiceId}")
@@ -95,6 +95,9 @@ public class SecurityConfig {
 
                     auth.requestMatchers(HttpMethod.DELETE, "/discounts/{discountId}")
                             .hasAnyRole(User.UserType.MASTER.name(), User.UserType.SALON.name());
+
+                    auth.requestMatchers(HttpMethod.POST, "/clients").permitAll();
+                    auth.requestMatchers(HttpMethod.GET, "/clients/{clientId}").permitAll();
 
                     auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
 

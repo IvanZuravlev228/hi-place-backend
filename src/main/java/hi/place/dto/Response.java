@@ -1,13 +1,13 @@
-package hi.place.exception;
+package hi.place.dto;
 
 import lombok.Data;
 
 @Data
-public class ErrorResponse {
+public class Response {
     private int status;
     private String message;
 
-    public ErrorResponse(int status, String message) {
+    public Response(int status, String message) {
         this.status = status;
         this.message = message;
     }

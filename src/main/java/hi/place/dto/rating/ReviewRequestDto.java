@@ -3,8 +3,9 @@ package hi.place.dto.rating;
 import lombok.Data;
 
 @Data
-public class RatingResponseDto {
-    private Long id;
+public class ReviewRequestDto {
+    private String clientName;
+    private String clientEmail;
     private String feedback;
     private Double point;
     private Long userId;
