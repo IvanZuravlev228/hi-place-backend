@@ -6,8 +6,6 @@ import hi.place.model.user.Price;
 import java.util.List;
 
 public interface PriceService {
-    List<Price> getAllByUserId(Long id);
-
     List<PriceProfileResponseDto> getAllByTypeOfServiceIdAndUserId(Long typeOfServiceId, Long userId);
 
     List<Price> addToUser(List<Price> price);

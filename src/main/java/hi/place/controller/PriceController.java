@@ -25,14 +25,6 @@ public class PriceController {
     private final UserService userService;
     private final RequestResponseMapper<PriceRequestDto, PriceResponseDto, Price> priceMapper;
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<PriceResponseDto>> getAllByUser(@PathVariable Long userId) {
-        return new ResponseEntity<>(priceService.getAllByUserId(userId)
-                .stream()
-                .map(priceMapper::toDto)
-                .collect(Collectors.toList()), HttpStatus.OK);
-    }
-
     @PostMapping
     public ResponseEntity<Boolean> addPriceToUser(@RequestBody List<PriceRequestDto> price, Authentication authentication) {
         checkOwner(price.get(0).getUserId(), authentication);

@@ -16,13 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PriceServiceImpl implements PriceService {
     private final PriceRepository priceRepository;
-    private final UserService userService;
-    private final ServiceItemService serviceItemService;
-
-    @Override
-    public List<Price> getAllByUserId(Long id) {
-        return priceRepository.getAllByUser_Id(id);
-    }
 
     @Override
     public List<PriceProfileResponseDto> getAllByTypeOfServiceIdAndUserId(Long typeOfServiceId, Long userId) {

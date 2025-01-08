@@ -20,6 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/images")
@@ -86,7 +87,7 @@ public class ImageController {
 
             String uploadPath = PATH_TO_STATIC_IMAGES + userId + "/discounts/";
             createDirectoryIfNotExist(uploadPath);
-            String fileName = file.getOriginalFilename();
+            String fileName = createFileName(file.getOriginalFilename());
             saveFile(file, uploadPath, fileName);
 
             String openPath = SERVER_URL + "/images/" + userId + "/discounts/" + fileName;
@@ -148,5 +149,10 @@ public class ImageController {
     private void saveFile(MultipartFile file, String uploadPath, String fileName) throws IOException {
         Path path = Paths.get(uploadPath + fileName);
         Files.copy(file.getInputStream(), path);
+    }
+
+    private String createFileName(String fileName) {
+        String[] split = fileName.split("\\.");
+        return UUID.randomUUID() + "." + split[split.length - 1];
     }
 }
