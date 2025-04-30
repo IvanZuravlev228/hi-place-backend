@@ -1,5 +1,6 @@
 package hi.place.service;
 
+import hi.place.dto.price.AvgPriceByServiceItemDTO;
 import hi.place.dto.price.PriceProfileResponseDto;
 import hi.place.model.user.Price;
 
@@ -17,4 +18,6 @@ public interface PriceService {
     List<PriceProfileResponseDto> getAllServiceItemsWithoutPrice(Long typeOfServiceId, Long userId);
 
     void deleteById(Long id);
+
+    List<AvgPriceByServiceItemDTO> getAveragePriceByServiceItemForUser(Long userId);
 }

@@ -98,4 +98,14 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
+
+    @Override
+    public List<User> getAllOrderByAvgRating() {
+        return userRepository.findAllByOrderByAvgRatingDesc();
+    }
+
+    @Override
+    public Long getCountUsersByType(User.UserType type) {
+        return userRepository.countByType(type);
+    }
 }

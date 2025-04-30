@@ -38,4 +38,8 @@ public interface UserService {
     void addLogoUrlToUser(String logoUrl, Long userId);
 
     boolean setEmailConfirmed(String token);
+
+    List<User> getAllOrderByAvgRating();
+
+    Long getCountUsersByType(User.UserType type);
 }

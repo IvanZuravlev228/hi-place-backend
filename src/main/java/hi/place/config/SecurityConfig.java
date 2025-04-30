@@ -101,6 +101,16 @@ public class SecurityConfig {
 
                     auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
 
+                    auth.requestMatchers(HttpMethod.POST, "/statistics/user/{userId}/click/{clickTo}")
+                            .permitAll();
+
+                    auth.requestMatchers(HttpMethod.GET,
+                            "/statistics/click/{clickType}",
+                            "/statistics/visit",
+                            "/statistics/user/{userId}/list-position",
+                            "/statistics/user/{userId}/avg-price",
+                            "/statistics/count/users").permitAll();
+
                     auth.requestMatchers("/images/**").permitAll();
                 })
                 .authenticationProvider(authenticationProvider())

@@ -26,7 +26,7 @@ public class User {
     private Integer discountWithPromo = 0;
     @Enumerated(EnumType.STRING)
     private UserType type;
-    private Double avg;
+    private Double avgRating;
     private Boolean emailVerified = false;
     private String verificationToken;
 

@@ -124,4 +124,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     void addLogoUrlToUser(@Param("logoURL") String logoURL, @Param("userId") Long userId);
 
     User findByVerificationToken(String verificationToken);
+
+    List<User> findAllByOrderByAvgRatingDesc();
+
+    Long countByType(User.UserType type);
 }
